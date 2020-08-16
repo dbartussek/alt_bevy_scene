@@ -1,0 +1,13 @@
+[package]
+name = "alt_bevy_scene"
+version = "0.1.0"
+authors = ["Dario Bartussek <d.bartussek@gmail.com>"]
+edition = "2018"
+license = "MIT"
+
+[dependencies]
+bevy = "0.1.2"
+
+typed_format = { git = "https://github.com/dbartussek/typed_format.git" }
+serde = "1.0.115"
+anyhow = "1.0.32"
