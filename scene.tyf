@@ -1,6 +1,6 @@
 [
-    (
-        856133054,
+    Entity(
+        2173766670,
         [
             alt_bevy_scene::ComponentB(
                 value: "hello",
@@ -11,8 +11,8 @@
             ),
         ],
     ),
-    (
-        955654489,
+    Entity(
+        4148975089,
         [
             alt_bevy_scene::ComponentA(
                 x: 3,
@@ -20,8 +20,8 @@
             ),
         ],
     ),
-    (
-        2144886162,
+    Entity(
+        3923619653,
         [
             bevy_transform::components::rotation::Rotation(
                 0: {

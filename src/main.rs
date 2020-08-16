@@ -35,6 +35,13 @@ fn save_scene_system(_world: &mut World, resources: &mut Resources) {
         &scene,
     );
 
+    std::fs::write(
+        "scene.scn",
+        scene
+            .serialize_ron(&type_registry.property.read().unwrap())
+            .unwrap(),
+    )
+    .unwrap();
     std::fs::write("scene.tyf", value.to_string_pretty()).unwrap();
 
     let round_trip = value_to_scene::value_to_scene(

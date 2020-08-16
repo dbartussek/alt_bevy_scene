@@ -2,7 +2,7 @@ use anyhow::anyhow;
 use bevy::{
     property::{
         property_serde::MapPropertyDeserializer, DynamicProperties, Property,
-        PropertyTypeRegistration, PropertyTypeRegistry,
+        PropertyTypeRegistry,
     },
     scene::{Entity, Scene},
 };
@@ -10,11 +10,13 @@ use serde::de::DeserializeSeed;
 use typed_format::value::{deserializer::ValueDeserializer, Value};
 
 fn value_to_property_box(
-    registry: &PropertyTypeRegistry,
+    _registry: &PropertyTypeRegistry,
     value: &Value,
-    type_registration: &PropertyTypeRegistration,
 ) -> anyhow::Result<Box<dyn Property>> {
-    Ok(type_registration.deserialize(ValueDeserializer { value }, registry)?)
+    Ok(match value {
+        Value::String(s) => Box::new(s.clone()),
+        _ => return Err(anyhow!("Unknown property: {:#?}", value)),
+    })
 }
 
 fn value_to_dynamic_properties(
@@ -28,14 +30,13 @@ fn value_to_dynamic_properties(
             let mut properties = DynamicProperties::map();
             properties.type_name = identifier.to_string();
 
-            let type_registration =
+            let _type_registration =
                 registry.get(&properties.type_name).ok_or_else(|| {
                     anyhow!("Type registration missing for {}", identifier)
                 })?;
 
             for (key, value) in items {
-                let value =
-                    value_to_property_box(registry, value, type_registration)?;
+                let value = value_to_property_box(registry, value)?;
                 properties.set_box(&key.0, value);
             }
 
@@ -55,7 +56,7 @@ fn value_to_entity(
     value: &Value,
 ) -> anyhow::Result<Entity> {
     match value {
-        Value::Tuple(items) => {
+        Value::TupleStruct(_, items) | Value::Tuple(items) => {
             if let Some((entity, components)) =
                 items.get(0).and_then(|entity| {
                     items

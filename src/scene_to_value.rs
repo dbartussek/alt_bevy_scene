@@ -67,15 +67,18 @@ fn entity_to_value(
     registry: &PropertyTypeRegistry,
     Entity { entity, components }: &Entity,
 ) -> Value {
-    Value::Tuple(vec![
-        Value::Number(entity.to_string()),
-        Value::List(
-            components
-                .iter()
-                .map(|props| dynamic_properties_to_value(registry, props))
-                .collect(),
-        ),
-    ])
+    Value::TupleStruct(
+        "Entity".into(),
+        vec![
+            Value::Number(entity.to_string()),
+            Value::List(
+                components
+                    .iter()
+                    .map(|props| dynamic_properties_to_value(registry, props))
+                    .collect(),
+            ),
+        ],
+    )
 }
 
 pub fn scene_to_value(registry: &PropertyTypeRegistry, scene: &Scene) -> Value {
