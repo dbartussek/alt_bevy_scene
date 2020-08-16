@@ -1,9 +1,8 @@
 use anyhow::anyhow;
 use bevy::{
     property::{
-        property_serde::{MapPropertyDeserializer},
-        DynamicProperties, Property, PropertyTypeRegistration,
-        PropertyTypeRegistry,
+        property_serde::MapPropertyDeserializer, DynamicProperties, Property,
+        PropertyTypeRegistration, PropertyTypeRegistry,
     },
     scene::{Entity, Scene},
 };

@@ -1,0 +1,140 @@
+[
+    (
+        856133054,
+        [
+            alt_bevy_scene::ComponentB(
+                value: "hello",
+            ),
+            alt_bevy_scene::ComponentA(
+                x: 1,
+                y: 2,
+            ),
+        ],
+    ),
+    (
+        955654489,
+        [
+            alt_bevy_scene::ComponentA(
+                x: 3,
+                y: 4,
+            ),
+        ],
+    ),
+    (
+        2144886162,
+        [
+            bevy_transform::components::rotation::Rotation(
+                0: {
+                    "type": "Quat",
+                    "value": Quat(
+                        0,
+                        0,
+                        0,
+                        1,
+                    ),
+                },
+            ),
+            bevy_transform::components::translation::Translation(
+                0: {
+                    "type": "Vec3",
+                    "value": Vec3(
+                        0,
+                        0,
+                        0,
+                    ),
+                },
+            ),
+            bevy_transform::components::transform::Transform(
+                sync: true,
+                value: {
+                    "type": "Mat4",
+                    "value": Mat4(
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                    ),
+                },
+            ),
+            bevy_render::pipeline::render_pipelines::RenderPipelines(
+                pipelines: [
+                    bevy_render::pipeline::render_pipelines::RenderPipeline(
+                        pipeline: bevy_asset::handle::Handle<bevy_render::pipeline::pipeline::PipelineDescriptor>(
+                            id: {
+                                "type": "HandleId",
+                                "value": HandleId(
+                                    "62ead31f-8d8e-4959-bf6b-8e95155e0704",
+                                ),
+                            },
+                        ),
+                        specialization: bevy_render::pipeline::pipeline_compiler::PipelineSpecialization(
+                            dynamic_bindings: [
+                                {
+                                    "type": "DynamicBinding",
+                                    "value": DynamicBinding(
+                                        bind_group: 2,
+                                        binding: 0,
+                                    ),
+                                },
+                                {
+                                    "type": "DynamicBinding",
+                                    "value": DynamicBinding(
+                                        bind_group: 3,
+                                        binding: 0,
+                                    ),
+                                },
+                            ],
+                            primitive_topology: {
+                                "type": "PrimitiveTopology",
+                                "value": PrimitiveTopology::TriangleList,
+                            },
+                            sample_count: 1,
+                            shader_specialization: {
+                                "type": "ShaderSpecialization",
+                                "value": ShaderSpecialization(
+                                    shader_defs: [],
+                                ),
+                            },
+                        ),
+                    ),
+                ],
+            ),
+            bevy_render::draw::Draw(
+                is_transparent: false,
+                is_visible: true,
+            ),
+            bevy_transform::components::scale::Scale(
+                0: 1,
+            ),
+            bevy_render::render_graph::base::MainPass(),
+            bevy_asset::handle::Handle<bevy_render::mesh::mesh::Mesh>(
+                id: {
+                    "type": "HandleId",
+                    "value": HandleId(
+                        "b5435f8d-80a9-4e67-b55d-ec94e8c71438",
+                    ),
+                },
+            ),
+            bevy_asset::handle::Handle<bevy_pbr::material::StandardMaterial>(
+                id: {
+                    "type": "HandleId",
+                    "value": HandleId(
+                        "b5435f8d-80a9-4e67-b55d-ec94e8c71438",
+                    ),
+                },
+            ),
+        ],
+    ),
+]
